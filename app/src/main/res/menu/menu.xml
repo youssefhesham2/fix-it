@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/my_projects"
+        android:icon="@drawable/ic_checklist"
+        android:title="my projects" />
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_loupe"
+        android:title="search" />
+
+    <item
+        android:id="@+id/add_work"
+        android:icon="@drawable/ic_plus"
+        android:title="add work" />
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/ic_chat"
+        android:title="chat" />
+    <item
+        android:id="@+id/my_profile"
+        android:icon="@drawable/ic_my_profile"
+        android:title="profile" />
+
+</menu>

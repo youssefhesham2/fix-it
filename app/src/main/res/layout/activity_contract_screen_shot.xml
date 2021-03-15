@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:id="@+id/rrr"
+    android:orientation="vertical"
+    tools:context=".UI.Contract.ContractScreenShotActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONTRACT AGREEMENT"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BY- Fix it company"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This Agreement is made on 27/5/2019"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BETWEEN"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1- Youssef hesham"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2- Samer H"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:layout_marginTop="5dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AGREEMENTS"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:layout_marginTop="5dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1-  Organization Information"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:layout_marginTop="5dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2-  Services be performed"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
+        android:gravity="left"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:layout_marginTop="5dp"
+        android:textColor="#000"
+        android:layout_marginLeft="10dp" />
+</LinearLayout>

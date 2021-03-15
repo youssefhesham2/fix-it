@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.youssef.fixit">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo_without_name"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FixIt"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".UI.StaticPage.TermsandConditionsActivity"></activity>
+        <activity android:name=".UI.StaticPage.PrivacyPolicyActivity" />
+        <activity android:name=".UI.StaticPage.AboutUSActivity" />
+        <activity android:name=".UI.Chat.ChatActivity" />
+        <activity android:name=".UI.MainActivity.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UI.Packages.SubscribePackageActivity" />
+        <activity android:name=".UI.Invoice.InvoiceActivity" />
+        <activity android:name=".UI.ShowProfile.ShowProfileActivity" />
+        <activity android:name=".UI.MyProfile.MyProfileActivity" />
+        <activity android:name=".UI.Contract.ContractScreenShotActivity" />
+        <activity android:name=".UI.PaymentTypes.Paypal.PaypalActivity" />
+        <activity android:name=".UI.InProgress.InProgressActivity" />
+        <activity android:name=".UI.Contract.DisplayAllMillestonesActivity" />
+        <activity android:name=".UI.Contract.DisplayContractActivity" />
+        <activity android:name=".UI.Milestones.MilestonesActivity" />
+        <activity android:name=".UI.Contract.CreateContractActivity" />
+        <activity android:name=".UI.Bids.BidsListActivity" />
+        <activity android:name=".UI.Bids.CreateBidActivity" />
+        <activity android:name=".UI.Projects.ProjectActivity" />
+        <activity android:name=".UI.AddWork.AddWorkActivity" />
+        <activity android:name=".UI.Auth.AuthActivity" />
+        <activity android:name=".UI.Home.HomeActivity" />
+        <activity android:name=".UI.MainActivity.MainActivity" />
+    </application>
+
+</manifest>

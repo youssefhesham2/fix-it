@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">fix it</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="fixed_budget">
+        <item>$ 10 - 30</item>
+        <item>$ 30 - 250</item>
+        <item>$ 250 - 750</item>
+        <item>$ 750 - 1500</item>
+        <item>$ 1500 - 3000</item>
+        <item>$ 3000 - 5000</item>
+        <item>$ 5000 - 10000</item>
+        <item>$ 10000 - 20000</item>
+        <item>$ 20000 - 50000</item>
+        <item>$ 50000 +</item>
+    </string-array>
+
+    <string-array name="hourly_budget">
+        <item>$ 2 - 8/hour</item>
+        <item>$ 8 - 15/hour</item>
+        <item>$ 15 - 25/hour</item>
+        <item>$ 25 - 50/hour</item>
+        <item>$ 50 +/hour</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>USD</item>
+        <item>CAD</item>
+    </string-array>
+
+    <string-array name="steps_view">
+        <item>Payment</item>
+        <item>In Progress</item>
+        <item>Review</item>
+        <item>Feedback</item>
+        <item>Well Done</item>
+    </string-array>
+</resources>

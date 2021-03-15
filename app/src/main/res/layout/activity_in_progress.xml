@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UI.InProgress.InProgressActivity">
+
+    <params.com.stepview.StatusViewScroller
+        android:id="@+id/step_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:stepCount="5"
+        app:drawLabels="true"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:entries="@array/steps_view"
+        app:circleColorType="fillStroke"
+        app:lineGap="5dp"
+        app:lineWidth="3dp"
+        app:lineColor="@android:color/black"
+        app:lineColorIncomplete="#B4B7BA"
+        app:lineColorCurrent="#91A8D0"
+        app:circleColor="@color/app_color"
+        app:circleColorCurrent="@color/app_color"
+        app:circleColorIncomplete="#BCBCBE"
+        app:textColorLabels="@android:color/white"
+        app:textColorLabelsCurrent="@android:color/white"
+        app:textColorLabelsIncomplete="@android:color/black"
+        app:circleStrokeWidth="4dp"
+        app:circleStrokeColorCurrent="#91A8D0"
+        app:textSizeLabels="15sp"
+        app:completeDrawable="@drawable/ic_check" />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btn_download_contract"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/solid_my_color"
+        android:text="Download Contract"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#fff"
+        android:layout_marginVertical="10dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/solid_read"
+        android:text="Delete project"
+        android:visibility="gone"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#fff"
+        android:textStyle="bold"/>
+</LinearLayout>

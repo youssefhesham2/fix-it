@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data></data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UI.InProgress.SeconedStepFragment">
+
+    <com.alespero.expandablecardview.ExpandableCardView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        app:animationDuration="300"
+        app:expandOnClick="true"
+        app:icon="@drawable/ic_check2"
+        app:inner_view="@layout/project_detils2"
+        app:startExpanded="false"
+        app:title="Project Details" />
+
+    <com.alespero.expandablecardview.ExpandableCardView
+        android:id="@+id/view_proposals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="5dp"
+        app:animationDuration="300"
+        app:expandOnClick="true"
+        app:icon="@drawable/ic_check2"
+        app:inner_view="@layout/proposals"
+        app:startExpanded="false"
+        app:title="View Proposals" />
+
+    <com.alespero.expandablecardview.ExpandableCardView
+        android:id="@+id/management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="5dp"
+        app:animationDuration="300"
+        app:expandOnClick="true"
+        app:icon="@drawable/ic_dryclean"
+        app:inner_view="@layout/request_milestones"
+        app:startExpanded="false"
+        app:title="Management" />
+
+</LinearLayout>
+</layout>
