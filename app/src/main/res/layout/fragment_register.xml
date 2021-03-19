@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="#fff"
         android:orientation="vertical"
-        tools:context=".UI.Auth.RegisterFragment">
+        tools:context=".Auth.RegisterFragment">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/uplodeImageRegister"

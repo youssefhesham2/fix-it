@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".UI.PaymentTypes.Paypal.PaypalActivity">
+    tools:context=".PaymentTypes.Paypal.PaypalActivity">
 
     <TextView
         android:id="@+id/tv_Description"
