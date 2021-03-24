@@ -20,13 +20,7 @@
         <activity android:name=".StaticPage.PrivacyPolicyActivity" />
         <activity android:name=".StaticPage.AboutUSActivity" />
         <activity android:name=".Chat.ChatActivity" />
-        <activity android:name=".MainActivity.SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity.SplashScreen"/>
         <activity android:name=".Packages.SubscribePackageActivity" />
         <activity android:name=".Invoice.InvoiceActivity" />
         <activity android:name=".ShowProfile.ShowProfileActivity" />
@@ -44,7 +38,13 @@
         <activity android:name=".AddWork.AddWorkActivity" />
         <activity android:name=".Auth.AuthActivity" />
         <activity android:name=".Home.HomeActivity" />
-        <activity android:name=".MainActivity.MainActivity" />
+        <activity android:name=".MainActivity.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
