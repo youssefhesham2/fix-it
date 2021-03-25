@@ -16,6 +16,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 class LoginPresenter {
+    private static final String TAG = "LoginPresenter";
     LoginView view;
 
     public LoginPresenter(LoginView view) {
@@ -49,8 +50,8 @@ class LoginPresenter {
                         MainActivity.MyToken = response.body().getData().getToken();
                         MainActivity.My_ID = response.body().getData().getId();
                         MainActivity.MyRole = roles.get(0);
-                        Log.e("hesham", response.body().getData().getId() + "");
-                        Log.e("hesham", MainActivity.MyToken);
+                        Log.d(TAG, response.body().getData().getId() + "");
+                        Log.d(TAG, MainActivity.MyToken);
                         String token = response.body().getData().getToken();
                         String role = response.body().getData().getRoles().get(0);
                         int my_id = response.body().getData().getId();
