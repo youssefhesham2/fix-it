@@ -10,4 +10,6 @@ interface LoginView {
     void OnFailure(String error);
 
     void OnForgotPassword();
+
+    void ShowLoading();
 }

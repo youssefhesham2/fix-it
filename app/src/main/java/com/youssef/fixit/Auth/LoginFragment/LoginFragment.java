@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.youssef.fixit.Home.HomeActivity;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Register.Register;
@@ -69,7 +70,6 @@ public class LoginFragment extends Fragment implements LoginView {
             public void onClick(View view) {
                 String Mail = binding.etMail.getText().toString();
                 String Password = binding.etPassword.getText().toString();
-                dialog.show();
                 loginPresenter.OnLogin(Mail, Password);
             }
         });
@@ -93,7 +93,6 @@ public class LoginFragment extends Fragment implements LoginView {
             public void onClick(View view) {
                 String mail = binding.etMail.getText().toString();
                 dialog.setTitle("");
-                dialog.show();
                 loginPresenter.OnForgotPassword(mail);
             }
         });
@@ -159,12 +158,17 @@ public class LoginFragment extends Fragment implements LoginView {
         Toast.makeText(getContext(), "Mail is Sent", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void ShowLoading() {
+        dialog.show();
+    }
+
     void SaveDataInShared(String token, String role, int my_id) {
         editor.putString("token", token);
         editor.putString("role", role);
         editor.putInt("my_id", my_id);
         editor.commit();
-        getActivity().startActivity(new Intent(getContext(), MainActivity.class));
+        getActivity().startActivity(new Intent(getContext(), HomeActivity.class));
         getActivity().finish();
     }
 }

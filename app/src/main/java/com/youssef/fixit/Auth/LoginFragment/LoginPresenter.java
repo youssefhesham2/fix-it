@@ -41,6 +41,7 @@ class LoginPresenter {
     }
 
     void LoginRequest(String Mail, String Password) {
+        view.ShowLoading();
         RetrofitClient.getInstance().Login(Mail, Password).enqueue(new Callback<Register>() {
             @Override
             public void onResponse(Call<Register> call, Response<Register> response) {
@@ -78,6 +79,7 @@ class LoginPresenter {
     }
 
     void ForgotPasswordRequest(String Mail) {
+        view.ShowLoading();
         RetrofitClient.getInstance().ForgetPassword(Mail).enqueue(new Callback<CreateBid>() {
             @Override
             public void onResponse(Call<CreateBid> call, Response<CreateBid> response) {
