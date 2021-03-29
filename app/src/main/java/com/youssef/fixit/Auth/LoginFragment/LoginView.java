@@ -12,4 +12,6 @@ interface LoginView {
     void OnForgotPassword();
 
     void ShowLoading();
+
+    void hideLoading();
 }

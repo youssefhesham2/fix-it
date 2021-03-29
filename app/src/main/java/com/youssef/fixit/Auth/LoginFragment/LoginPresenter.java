@@ -43,6 +43,7 @@ class LoginPresenter {
         RetrofitClient.getInstance().Login(Mail, Password).enqueue(new Callback<Register>() {
             @Override
             public void onResponse(Call<Register> call, Response<Register> response) {
+                view.hideLoading();
                 if (response.isSuccessful() && response.code() == 200) {
                     if (response.body().getData() != null) {
                         List<String> roles = response.body().getData().getRoles();
@@ -63,6 +64,7 @@ class LoginPresenter {
 
             @Override
             public void onFailure(Call<Register> call, Throwable t) {
+                view.hideLoading();
                 view.OnFailure(t.getMessage());
             }
         });
@@ -81,6 +83,7 @@ class LoginPresenter {
         RetrofitClient.getInstance().ForgetPassword(Mail).enqueue(new Callback<CreateBid>() {
             @Override
             public void onResponse(Call<CreateBid> call, Response<CreateBid> response) {
+                view.hideLoading();
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         if (response.body().getData() != null) {
@@ -102,6 +105,7 @@ class LoginPresenter {
 
             @Override
             public void onFailure(Call<CreateBid> call, Throwable t) {
+                view.hideLoading();
                 view.OnFailure(t.getMessage());
             }
         });

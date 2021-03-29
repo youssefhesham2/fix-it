@@ -117,39 +117,39 @@ public class LoginFragment extends Fragment implements LoginView {
 
     @Override
     public void OnMailIsError(String Message) {
-        dialog.dismiss();
         Toast.makeText(getContext(), Message, Toast.LENGTH_SHORT).show();
         binding.etMail.requestFocus();
     }
 
     @Override
     public void OnPasswordIsError(String Message) {
-        dialog.dismiss();
         Toast.makeText(getContext(), Message, Toast.LENGTH_SHORT).show();
         binding.etPassword.requestFocus();
     }
 
     @Override
     public void OnLoginSuccessful(String token, String role, int my_id) {
-        dialog.dismiss();
         SaveDataInShared(token, role, my_id);
     }
 
     @Override
     public void OnFailure(String error) {
-        dialog.dismiss();
         Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void OnForgotPassword() {
-        dialog.dismiss();
         Toast.makeText(getContext(), "Mail is Sent", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void ShowLoading() {
         dialog.show();
+    }
+
+    @Override
+    public void hideLoading() {
+        dialog.dismiss();
     }
 
     void SaveDataInShared(String token, String role, int my_id) {
