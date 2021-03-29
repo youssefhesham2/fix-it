@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Ads.Package.Package;
 import com.youssef.fixit.Models.Ads.ShowAds;
 import com.youssef.fixit.Models.Bids.Bids;
@@ -23,7 +24,6 @@ import com.youssef.fixit.Models.ShowProfile.ShowProfile;
 import com.youssef.fixit.Models.chat.Massage.Chat;
 import com.youssef.fixit.Models.chat.Rooms;
 import com.youssef.fixit.Models.chat.SendMassage.SendMassage;
-import com.youssef.fixit.MainActivity.MainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,7 +55,7 @@ public class RetrofitClient {
         if (retrofitClient == null) {
             retrofitClient = new RetrofitClient();
         }
-        token = "Bearer " + MainActivity.MyToken;
+        token = "Bearer " + SplashScreen.MyToken;
         return retrofitClient;
     }
 

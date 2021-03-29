@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.ShowProfile.Category;
@@ -26,7 +27,6 @@ import com.youssef.fixit.Models.ShowProfile.Image;
 import com.youssef.fixit.Models.ShowProfile.ShowProfile;
 import com.youssef.fixit.Models.ShowProfile.User;
 import com.youssef.fixit.R;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.ShowProfile.ShowProfileViewModel;
 import com.youssef.fixit.databinding.ActivityMyProfileBinding;
 
@@ -82,7 +82,7 @@ public class MyProfileActivity extends AppCompatActivity {
     }
 
     private void InitGeData() {
-        UserId = MainActivity.My_ID;//getIntent().getIntExtra("user_id", 0);
+        UserId = SplashScreen.My_ID;//getIntent().getIntExtra("user_id", 0);
         ShowProfileViewModel showProfileViewModel = ViewModelProviders.of(this).get(ShowProfileViewModel.class);
         showProfileViewModel.ShowProfile(UserId);
         showProfileViewModel.showProfileMutableLiveData.observe(this, new Observer<ShowProfile>() {

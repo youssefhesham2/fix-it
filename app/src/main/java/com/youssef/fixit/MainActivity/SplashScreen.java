@@ -16,9 +16,11 @@ import com.youssef.fixit.Home.HomeActivity;
 import com.youssef.fixit.R;
 
 public class SplashScreen extends AppCompatActivity {
-    public SharedPreferences preferences;
-    public SharedPreferences.Editor editor;
-
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+    public static String MyToken;
+    public static String MyRole;
+    public static int My_ID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,16 +49,16 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void CheckLogin() {
-        MainActivity.MyToken = preferences.getString("token", "");
-        MainActivity.MyRole = preferences.getString("role", "");
-        MainActivity.My_ID = preferences.getInt("my_id", 0);
-        if (MainActivity.MyToken.isEmpty()) {
+        SplashScreen.MyToken = preferences.getString("token", "");
+        SplashScreen.MyRole = preferences.getString("role", "");
+        SplashScreen.My_ID = preferences.getInt("my_id", 0);
+        if (SplashScreen.MyToken.isEmpty()) {
             startActivity(new Intent(this, AuthActivity.class));
             finish();
         } else {
             startActivity(new Intent(this, HomeActivity.class));
             finish();
-            Log.e("hesham", "home" + MainActivity.MyToken);
+            Log.e("hesham", "home" + SplashScreen.MyToken);
         }
     }
 

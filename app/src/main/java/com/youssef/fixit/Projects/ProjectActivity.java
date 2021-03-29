@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.Bids;
 import com.youssef.fixit.Models.Bids.Datum;
@@ -33,7 +34,6 @@ import com.youssef.fixit.Bids.BidsListActivity;
 import com.youssef.fixit.Bids.CreateBidActivity;
 import com.youssef.fixit.Chat.ChatActivity;
 import com.youssef.fixit.Contract.CreateContractActivity;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.ShowProfile.ShowProfileActivity;
 import com.youssef.fixit.databinding.ActivityProjectBinding;
 
@@ -82,13 +82,13 @@ public class ProjectActivity extends AppCompatActivity {
         projectViewModel.projectMutableLiveData.observe(this, new Observer<Project>() {
             @Override
             public void onChanged(Project project) {
-                if(MainActivity.MyRole.equals("client")){
+                if(SplashScreen.MyRole.equals("client")){
                     binding.btnPlaceBid.setVisibility(View.GONE);
                     binding.tvItsFree.setVisibility(View.GONE);
                     binding.bottom.setVisibility(View.GONE);
                 }
                 Data data = project.getData();
-                if(data.getUser().getId()== MainActivity.My_ID){
+                if(data.getUser().getId()== SplashScreen.My_ID){
                     from_my_project=1;
                     binding.btnPlaceBid.setVisibility(View.GONE);
                 }

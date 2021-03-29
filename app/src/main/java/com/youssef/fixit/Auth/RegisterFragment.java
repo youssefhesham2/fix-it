@@ -30,13 +30,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.youssef.fixit.Home.HomeActivity;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RealPathUtil;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Cities.Cites;
 import com.youssef.fixit.Models.Cities.Datum;
 import com.youssef.fixit.Models.Register.Register;
 import com.youssef.fixit.R;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.databinding.FragmentRegisterBinding;
 
 import java.io.ByteArrayOutputStream;
@@ -462,15 +463,15 @@ public class RegisterFragment extends Fragment {
                 dialog.dismiss();
                 if (response.isSuccessful() && response.code() == 200) {
                     if (response.body().getData() != null) {
-                        MainActivity.MyToken = response.body().getData().getToken();
+                        SplashScreen.MyToken = response.body().getData().getToken();
                         List<String> roles = response.body().getData().getRoles();
-                        MainActivity.MyRole = roles.get(0);
-                        MainActivity.My_ID=response.body().getData().getId();
+                        SplashScreen.MyRole = roles.get(0);
+                        SplashScreen.My_ID=response.body().getData().getId();
                         editor.putString("token", response.body().getData().getToken());
                         editor.putString("role", roles.get(0));
                         editor.putInt("my_id", response.body().getData().getId());
                         editor.commit();
-                        getActivity().startActivity(new Intent(getContext(), MainActivity.class));
+                        getActivity().startActivity(new Intent(getContext(), HomeActivity.class));
                         getActivity().finish();
                     } else {
                         for (int i=0;i<response.body().getErrors().size();i++){

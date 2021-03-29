@@ -13,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.R;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.MyProjects.MyBids.MyBidsFragment;
 import com.youssef.fixit.MyProjects.MyContracts.MyContractsFragment;
 import com.youssef.fixit.MyProjects.MyInprogressProject.MyInprogressFragment;
@@ -51,7 +51,7 @@ public class MyProjectFragment extends Fragment {
     }
 
     private void InitTabView() {
-        if (MainActivity.MyRole.equals("client")) {
+        if (SplashScreen.MyRole.equals("client")) {
             Viewpagadapter viewpagadapter=new Viewpagadapter(getChildFragmentManager());
             viewpagadapter.addfragments(new OpenProjectFragment(),"Open");
             viewpagadapter.addfragments(new MyInprogressFragment(),"In progress");

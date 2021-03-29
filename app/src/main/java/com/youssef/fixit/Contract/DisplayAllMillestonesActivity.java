@@ -17,13 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cazaea.sweetalert.SweetAlertDialog;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Contract.Milestone;
 import com.youssef.fixit.R;
 import com.youssef.fixit.InProgress.InProgressActivity;
 import com.youssef.fixit.InProgress.SeconedStepFragment;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.Milestones.MilestonesActivity;
 
 import java.util.List;
@@ -120,7 +120,7 @@ public class DisplayAllMillestonesActivity extends AppCompatActivity {
             Milestone milestone = milestones.get(position);
             holder.tv_milestones_title.setText(milestone.getDetails());
             holder.tv_milestones_price.setText("$ " + milestone.getPrice() + " USD");
-            if (MainActivity.MyRole.equals("client")) {
+            if (SplashScreen.MyRole.equals("client")) {
                 if(position==milestones.size()-1){
                     holder.add_milestone.setVisibility(View.VISIBLE);
                 }

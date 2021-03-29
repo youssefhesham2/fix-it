@@ -1,10 +1,8 @@
 package com.youssef.fixit.Auth.LoginFragment;
 
-import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.youssef.fixit.MainActivity.MainActivity;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Register.Register;
@@ -48,11 +46,11 @@ class LoginPresenter {
                 if (response.isSuccessful() && response.code() == 200) {
                     if (response.body().getData() != null) {
                         List<String> roles = response.body().getData().getRoles();
-                        MainActivity.MyToken = response.body().getData().getToken();
-                        MainActivity.My_ID = response.body().getData().getId();
-                        MainActivity.MyRole = roles.get(0);
+                        SplashScreen.MyToken = response.body().getData().getToken();
+                        SplashScreen.My_ID = response.body().getData().getId();
+                        SplashScreen.MyRole = roles.get(0);
                         Log.d(TAG, response.body().getData().getId() + "");
-                        Log.d(TAG, MainActivity.MyToken);
+                        Log.d(TAG, SplashScreen.MyToken);
                         String token = response.body().getData().getToken();
                         String role = response.body().getData().getRoles().get(0);
                         int my_id = response.body().getData().getId();

@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.ShowProfile.Category;
 import com.youssef.fixit.Models.ShowProfile.Feedback;
@@ -29,7 +30,6 @@ import com.youssef.fixit.Models.chat.SendMassage.SendMassage;
 import com.youssef.fixit.R;
 import com.youssef.fixit.Chat.ChatActivity;
 import com.youssef.fixit.Invoice.InvoiceActivity;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.databinding.ActivityShowProfileBinding;
 
 import java.util.List;
@@ -135,7 +135,7 @@ public class ShowProfileActivity extends AppCompatActivity {
     }
 
     private void InitViews() {
-        if (MainActivity.MyRole.equals("client")) {
+        if (SplashScreen.MyRole.equals("client")) {
             binding.btnChat.setVisibility(View.VISIBLE);
             //binding.btnHireThis.setVisibility(View.VISIBLE);
         } else {

@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.alespero.expandablecardview.ExpandableCardView;
 import com.cazaea.sweetalert.SweetAlertDialog;
 import com.squareup.picasso.Picasso;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Contract.Contract;
@@ -37,7 +38,6 @@ import com.youssef.fixit.R;
 import com.youssef.fixit.Chat.ChatActivity;
 import com.youssef.fixit.Contract.ContractViewModel;
 import com.youssef.fixit.Contract.DisplayAllMillestonesActivity;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.Milestones.MilestonesActivity;
 import com.youssef.fixit.MyProjects.MyInprogressProject.MyInprogressAdapter;
 import com.youssef.fixit.databinding.FragmentSeconedStepBinding;
@@ -111,7 +111,7 @@ public class SeconedStepFragment extends Fragment {
         btn_chat = v.findViewById(R.id.btn_chat);
 
         tv_price.setText("$ " + contract1.getTotalPrice() + " USD");
-        if (MainActivity.MyRole == ("client")) {
+        if (SplashScreen.MyRole == ("client")) {
             tv_user_name.setText(contract1.getProfession().getName() + "");
             rating_bar.setRating(contract1.getProfession().getRate().floatValue());
             Picasso.get().load(contract1.getProfession().getImage()).error(R.mipmap.ic_launcher).into(img_profile_pic);
@@ -209,7 +209,7 @@ public class SeconedStepFragment extends Fragment {
             Milestone milestone = milestones.get(position);
             holder.tv_milestones_title.setText(milestone.getDetails());
             holder.tv_milestones_price.setText("$ " + milestone.getPrice() + " USD");
-            if (MainActivity.MyRole.equals("client")) {
+            if (SplashScreen.MyRole.equals("client")) {
                 holder.send_milestone.setVisibility(View.VISIBLE);
                 holder.add_milestone.setVisibility(View.VISIBLE);
 

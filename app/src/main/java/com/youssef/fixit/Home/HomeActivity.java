@@ -11,11 +11,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.R;
 import com.youssef.fixit.Category.CategoryFragment;
 import com.youssef.fixit.Chat.RoomsFragment;
 import com.youssef.fixit.Jobs.JobsFragment;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.More.MoreFragment;
 import com.youssef.fixit.MyProjects.MyProjectFragment;
 import com.youssef.fixit.SearchProff.SearchProfFragment;
@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
                         ReplaceFragment(new MoreFragment());
                         break;
                     case R.id.add_work:
-                        if(MainActivity.MyRole.equals("client")){
+                        if(SplashScreen.MyRole.equals("client")){
                             ReplaceFragment(new CategoryFragment());
                         }
                         else {

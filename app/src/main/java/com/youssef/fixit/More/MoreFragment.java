@@ -19,11 +19,11 @@ import android.view.ViewGroup;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.ShowProfile.ShowProfile;
 import com.youssef.fixit.Models.ShowProfile.User;
 import com.youssef.fixit.R;
 import com.youssef.fixit.Auth.AuthActivity;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.MyProfile.MyProfileActivity;
 import com.youssef.fixit.Packages.SubscribePackageActivity;
 import com.youssef.fixit.PaymentTypes.Paypal.PaypalActivity;
@@ -63,7 +63,7 @@ public class MoreFragment extends Fragment {
     }
 
     private void InitViews() {
-        if (MainActivity.MyRole.equals("client")) {
+        if (SplashScreen.MyRole.equals("client")) {
             binding.LtMemberships.setVisibility(View.GONE);
             binding.viewMembership.setVisibility(View.GONE);
             binding.accountsetting.setVisibility(View.GONE);
@@ -106,9 +106,9 @@ public class MoreFragment extends Fragment {
                 editor.putString("token", "");
                 editor.putString("role", "");
                 editor.putInt("my_id", 0);
-                MainActivity.MyToken = "";
-                MainActivity.MyRole = "";
-                MainActivity.My_ID = 0;
+                SplashScreen.MyToken = "";
+                SplashScreen.MyRole = "";
+                SplashScreen.My_ID = 0;
                 editor.commit();
                 startActivity(new Intent(getContext(), AuthActivity.class));
                 getActivity().finish();

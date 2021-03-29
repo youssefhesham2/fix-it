@@ -18,13 +18,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.cazaea.sweetalert.SweetAlertDialog;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Contract.Contract;
 import com.youssef.fixit.Models.Contract.Data;
 import com.youssef.fixit.R;
 import com.youssef.fixit.Contract.ContractViewModel;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.MyProjects.MyInprogressProject.MyInprogressAdapter;
 import com.youssef.fixit.databinding.FragmentThirdStepBinding;
 
@@ -59,7 +59,7 @@ public class ThirdStepFragment extends Fragment {
     }
 
     void InitView() {
-        if (MainActivity.MyRole.equals("profession")) {
+        if (SplashScreen.MyRole.equals("profession")) {
             binding.tvFriendly.setText("Fair");
             binding.tvQuality.setText("Friendly");
             binding.tvTime.setText("Pay on time");

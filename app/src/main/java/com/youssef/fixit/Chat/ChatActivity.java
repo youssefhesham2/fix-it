@@ -25,12 +25,12 @@ import com.pusher.client.connection.ConnectionEventListener;
 import com.pusher.client.connection.ConnectionState;
 import com.pusher.client.connection.ConnectionStateChange;
 import com.pusher.client.util.HttpAuthorizer;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.chat.Massage.Chat;
 import com.youssef.fixit.Models.chat.Massage.Datum;
 import com.youssef.fixit.Models.chat.SendMassage.SendMassage;
 import com.youssef.fixit.R;
-import com.youssef.fixit.MainActivity.MainActivity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -148,7 +148,7 @@ public class ChatActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull viewholder holder, int position) {
             Datum massage = massages.get(position);
-            if (massage.getFrom().getId() == MainActivity.My_ID) {
+            if (massage.getFrom().getId() == SplashScreen.My_ID) {
                 holder.tv_my_message.setText(massage.getMessage());
                 holder.other_user.setVisibility(View.GONE);
             } else {
@@ -193,7 +193,7 @@ public class ChatActivity extends AppCompatActivity {
         HttpAuthorizer authorizer = new HttpAuthorizer("https://backend.helpmefixit.ca/api/chat/authorize");
         HashMap<String, String> hashMap = new HashMap<>();
         Log.e("Pusher", room_id + "");
-        hashMap.put("Authorization", "Bearer " + MainActivity.MyToken);
+        hashMap.put("Authorization", "Bearer " + SplashScreen.MyToken);
         authorizer.setHeaders(hashMap);
         options.setAuthorizer(authorizer);
         //pusher key

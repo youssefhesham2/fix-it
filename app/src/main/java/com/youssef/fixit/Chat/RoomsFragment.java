@@ -17,12 +17,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.chat.CreatedBy;
 import com.youssef.fixit.Models.chat.Datum;
 import com.youssef.fixit.Models.chat.Rooms;
 import com.youssef.fixit.Models.chat.Users;
 import com.youssef.fixit.R;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.databinding.FragmentUsersChatBinding;
 
 import java.util.List;
@@ -90,7 +90,7 @@ public class RoomsFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull viewholder holder, int position) {
-            if(MainActivity.MyRole.equals("profession")){
+            if(SplashScreen.MyRole.equals("profession")){
                 CreatedBy user = rooms.get(position).getCreatedBy_();
                 Picasso.get().load(user.getImage()).error(R.mipmap.ic_launcher).into(holder.ci_user_image);
                 holder.tv_user_name.setText(user.getName());

@@ -61,7 +61,7 @@ public class JobsFragment extends Fragment implements JobsView {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Toast.makeText(getContext(), charSequence.toString()+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), charSequence.toString() + "", Toast.LENGTH_SHORT).show();
                 jobsPresenter.JobSearch(charSequence);
             }
 

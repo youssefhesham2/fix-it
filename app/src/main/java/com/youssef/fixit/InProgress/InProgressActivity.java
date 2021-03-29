@@ -13,12 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.youssef.fixit.MainActivity.SplashScreen;
 import com.youssef.fixit.Models.Contract.Contract;
 import com.youssef.fixit.Models.Contract.Data;
 import com.youssef.fixit.R;
 import com.youssef.fixit.Contract.ContractScreenShotActivity;
 import com.youssef.fixit.Contract.ContractViewModel;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.MyProjects.MyInprogressProject.MyInprogressAdapter;
 import com.youssef.fixit.MyProjects.ProffInProgress.PprofInProgressAdapter;
 
@@ -47,10 +47,10 @@ public class InProgressActivity extends AppCompatActivity {
     }
 
     public void Steps() {
-        if(MainActivity.MyRole.equals("client")) {
+        if(SplashScreen.MyRole.equals("client")) {
             if (MyInprogressAdapter.jobs.getIsPaid() == 0) {
                 viewScroller.getStatusView().setCurrentCount(1);
-                if (MainActivity.MyRole.equals("client")) {
+                if (SplashScreen.MyRole.equals("client")) {
                     ReplaceFragment(new FirstStepFragment());
                 } else {
                     ReplaceFragment(new waitFragment());
@@ -69,7 +69,7 @@ public class InProgressActivity extends AppCompatActivity {
         else {
             if (PprofInProgressAdapter.jobs.getIsPaid() == 0) {
                 viewScroller.getStatusView().setCurrentCount(1);
-                if (MainActivity.MyRole.equals("client")) {
+                if (SplashScreen.MyRole.equals("client")) {
                     ReplaceFragment(new FirstStepFragment());
                 } else {
                     ReplaceFragment(new waitFragment());
@@ -97,7 +97,7 @@ public class InProgressActivity extends AppCompatActivity {
 
     public void GetContract() {
         ContractViewModel viewModel = ViewModelProviders.of(this).get(ContractViewModel.class);
-        if(MainActivity.MyRole.equals("client")){
+        if(SplashScreen.MyRole.equals("client")){
             viewModel.ShowContract(MyInprogressAdapter.jobs.getContract().getId());
         }
         else {

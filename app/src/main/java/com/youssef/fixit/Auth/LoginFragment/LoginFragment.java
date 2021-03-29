@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,18 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.youssef.fixit.Home.HomeActivity;
-import com.youssef.fixit.Models.Data.RetrofitClient;
-import com.youssef.fixit.Models.Bids.CreateBid;
-import com.youssef.fixit.Models.Register.Register;
 import com.youssef.fixit.R;
-import com.youssef.fixit.MainActivity.MainActivity;
 import com.youssef.fixit.databinding.FragmentLoginBinding;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginFragment extends Fragment implements LoginView {
     FragmentLoginBinding binding;
