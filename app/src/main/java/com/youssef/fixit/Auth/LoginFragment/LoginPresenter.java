@@ -38,7 +38,7 @@ class LoginPresenter {
         LoginRequest(Mail, Password);
     }
 
-    void LoginRequest(String Mail, String Password) {
+    void loginRequest(String Mail, String Password) {
         view.ShowLoading();
         RetrofitClient.getInstance().Login(Mail, Password).enqueue(new Callback<Register>() {
             @Override
