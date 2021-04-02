@@ -23,10 +23,10 @@ import com.youssef.fixit.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment implements LoginView {
     FragmentLoginBinding binding;
-    public SharedPreferences preferences;
-    public SharedPreferences.Editor editor;
-    public ProgressDialog dialog;
-    int showpassword;
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+    private ProgressDialog dialog;
+    int showPassword;
     LoginPresenter loginPresenter;
 
     @Override
@@ -45,49 +45,49 @@ public class LoginFragment extends Fragment implements LoginView {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        IntialSharedPreferences();
-        InitDialog();
-        InitViews();
-        ForgetPassword();
-        ShowPassword();
+        initSharedPreferences();
+        initDialog();
+        initViews();
+        forgetPassword();
+        showPassword();
     }
 
-    void InitViews() {
+    private void initViews() {
         loginPresenter = new LoginPresenter(this);
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String Mail = binding.etMail.getText().toString();
-                String Password = binding.etPassword.getText().toString();
-                loginPresenter.OnLogin(Mail, Password);
+                String mail = binding.etMail.getText().toString();
+                String password = binding.etPassword.getText().toString();
+                loginPresenter.onLogin(mail, password);
             }
         });
     }
 
-    public void IntialSharedPreferences() {
+    private void initSharedPreferences() {
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         editor = preferences.edit();
     }
 
-    private void InitDialog() {
+    private void initDialog() {
         dialog = new ProgressDialog(getContext());
         dialog.setMessage("please wait...");
         dialog.setTitle("Sign in");
         dialog.setCancelable(false);
     }
 
-    private void ForgetPassword() {
+    private void forgetPassword() {
         binding.forgetpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String mail = binding.etMail.getText().toString();
                 dialog.setTitle("");
-                loginPresenter.OnForgotPassword(mail);
+                loginPresenter.onForgotPassword(mail);
             }
         });
     }
 
-    private void ShowPassword() {
+    private void showPassword() {
         binding.etPassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -115,49 +115,49 @@ public class LoginFragment extends Fragment implements LoginView {
         });
     }
 
-    @Override
-    public void OnMailIsError(String Message) {
-        Toast.makeText(getContext(), Message, Toast.LENGTH_SHORT).show();
-        binding.etMail.requestFocus();
-    }
-
-    @Override
-    public void OnPasswordIsError(String Message) {
-        Toast.makeText(getContext(), Message, Toast.LENGTH_SHORT).show();
-        binding.etPassword.requestFocus();
-    }
-
-    @Override
-    public void OnLoginSuccessful(String token, String role, int my_id) {
-        SaveDataInShared(token, role, my_id);
-    }
-
-    @Override
-    public void OnFailure(String error) {
-        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void OnForgotPassword() {
-        Toast.makeText(getContext(), "Mail is Sent", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void ShowLoading() {
-        dialog.show();
-    }
-
-    @Override
-    public void hideLoading() {
-        dialog.dismiss();
-    }
-
-    void SaveDataInShared(String token, String role, int my_id) {
+    private void saveDataInShared(String token, String role, int my_id) {
         editor.putString("token", token);
         editor.putString("role", role);
         editor.putInt("my_id", my_id);
         editor.commit();
         getActivity().startActivity(new Intent(getContext(), HomeActivity.class));
         getActivity().finish();
+    }
+
+    @Override
+    public void onMailIsError(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        binding.etMail.requestFocus();
+    }
+
+    @Override
+    public void onPasswordIsError(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        binding.etPassword.requestFocus();
+    }
+
+    @Override
+    public void onLoginSuccessful(String token, String role, int my_id) {
+        saveDataInShared(token, role, my_id);
+    }
+
+    @Override
+    public void onFailure(String error) {
+        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onForgotPassword() {
+        Toast.makeText(getContext(), "Mail is Sent", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showLoading() {
+        dialog.show();
+    }
+
+    @Override
+    public void hideLoading() {
+        dialog.dismiss();
     }
 }

@@ -1,17 +1,17 @@
 package com.youssef.fixit.Auth.LoginFragment;
 
 interface LoginView {
-    void OnMailIsError(String Message);
+    void onMailIsError(String message);
 
-    void OnPasswordIsError(String Message);
+    void onPasswordIsError(String message);
 
-    void OnLoginSuccessful(String token, String role, int my_id);
+    void onLoginSuccessful(String token, String role, int myId);
 
-    void OnFailure(String error);
+    void onFailure(String error);
 
-    void OnForgotPassword();
+    void onForgotPassword();
 
-    void ShowLoading();
+    void showLoading();
 
     void hideLoading();
 }

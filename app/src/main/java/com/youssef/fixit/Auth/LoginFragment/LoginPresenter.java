@@ -15,32 +15,32 @@ import retrofit2.Response;
 
 class LoginPresenter {
     private static final String TAG = "LoginPresenter";
-    LoginView view;
+    private LoginView view;
 
     public LoginPresenter(LoginView view) {
         this.view = view;
     }
 
-    void OnLogin(String Mail, String Password) {
-        Validation(Mail, Password);
+    void onLogin(String mail, String password) {
+        validation(mail, password);
     }
 
-    void Validation(String Mail, String Password) {
-        if (Mail.isEmpty()) {
-            view.OnMailIsError("Please enter your Mail");
+    void validation(String mail, String Password) {
+        if (mail.isEmpty()) {
+            view.onMailIsError("Please enter your Mail");
             return;
         }
         if (Password.isEmpty()) {
-            view.OnPasswordIsError("Please enter your Password");
+            view.onPasswordIsError("Please enter your Password");
             return;
         }
 
-        LoginRequest(Mail, Password);
+        loginRequest(mail, Password);
     }
 
-    void loginRequest(String Mail, String Password) {
-        view.ShowLoading();
-        RetrofitClient.getInstance().Login(Mail, Password).enqueue(new Callback<Register>() {
+    void loginRequest(String mail, String password) {
+        view.showLoading();
+        RetrofitClient.getInstance().Login(mail, password).enqueue(new Callback<Register>() {
             @Override
             public void onResponse(Call<Register> call, Response<Register> response) {
                 view.hideLoading();
@@ -55,9 +55,9 @@ class LoginPresenter {
                         String token = response.body().getData().getToken();
                         String role = response.body().getData().getRoles().get(0);
                         int my_id = response.body().getData().getId();
-                        view.OnLoginSuccessful(token, role, my_id);
+                        view.onLoginSuccessful(token, role, my_id);
                     } else {
-                        view.OnFailure("incorrect email or password!!");
+                        view.onFailure("incorrect email or password!!");
                     }
                 }
             }
@@ -65,21 +65,21 @@ class LoginPresenter {
             @Override
             public void onFailure(Call<Register> call, Throwable t) {
                 view.hideLoading();
-                view.OnFailure(t.getMessage());
+                view.onFailure(t.getMessage());
             }
         });
     }
 
-    void OnForgotPassword(String Mail) {
+    void onForgotPassword(String Mail) {
         if (Mail.isEmpty()) {
-            view.OnMailIsError("Please enter your Mail");
+            view.onMailIsError("Please enter your Mail");
             return;
         }
-        ForgotPasswordRequest(Mail);
+        forgotPasswordRequest(Mail);
     }
 
-    void ForgotPasswordRequest(String Mail) {
-        view.ShowLoading();
+    void forgotPasswordRequest(String Mail) {
+        view.showLoading();
         RetrofitClient.getInstance().ForgetPassword(Mail).enqueue(new Callback<CreateBid>() {
             @Override
             public void onResponse(Call<CreateBid> call, Response<CreateBid> response) {
@@ -88,17 +88,17 @@ class LoginPresenter {
                     if (response.body() != null) {
                         if (response.body().getData() != null) {
                             if (response.body().getData() != null) {
-                                view.OnForgotPassword();
+                                view.onForgotPassword();
                             }
                         } else {
-                            view.OnFailure(response.body().getMessage());
+                            view.onFailure(response.body().getMessage());
                         }
                     } else {
-                        view.OnFailure(response.message());
+                        view.onFailure(response.message());
                     }
 
                 } else {
-                    view.OnFailure(response.message());
+                    view.onFailure(response.message());
                 }
 
             }
@@ -106,7 +106,7 @@ class LoginPresenter {
             @Override
             public void onFailure(Call<CreateBid> call, Throwable t) {
                 view.hideLoading();
-                view.OnFailure(t.getMessage());
+                view.onFailure(t.getMessage());
             }
         });
     }

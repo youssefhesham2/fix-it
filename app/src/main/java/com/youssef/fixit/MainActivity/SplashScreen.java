@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -30,7 +29,7 @@ public class SplashScreen extends AppCompatActivity implements SplashView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         initViews();
-        InitSharedPreferences();
+        initSharedPreferences();
         InitSplashScreen();
     }
 
@@ -42,7 +41,7 @@ public class SplashScreen extends AppCompatActivity implements SplashView {
 
                 try {
                     sleep(3000);
-                    CheckLogin();
+                    checkLogin();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -57,7 +56,7 @@ public class SplashScreen extends AppCompatActivity implements SplashView {
         presenter = new SplashScreenPresenter(this);
     }
 
-    private void CheckLogin() {
+    private void checkLogin() {
         MyToken = preferences.getString("token", "");
         MyRole = preferences.getString("role", "");
         My_ID = preferences.getInt("my_id", 0);
@@ -65,7 +64,7 @@ public class SplashScreen extends AppCompatActivity implements SplashView {
         presenter.checkUserIsLoggedInOrNot(MyToken);
     }
 
-    private void InitSharedPreferences() {
+    private void initSharedPreferences() {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
     }
