@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.R;
 import com.youssef.fixit.MyProjects.MyBids.MyBidsFragment;
 import com.youssef.fixit.MyProjects.MyContracts.MyContractsFragment;

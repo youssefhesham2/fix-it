@@ -1,10 +1,4 @@
-package com.youssef.fixit.MainActivity;
-
-import android.content.Intent;
-import android.util.Log;
-
-import com.youssef.fixit.Auth.AuthActivity;
-import com.youssef.fixit.Home.HomeActivity;
+package com.youssef.fixit.SplashActivity;
 
 class SplashScreenPresenter {
     private SplashView view;

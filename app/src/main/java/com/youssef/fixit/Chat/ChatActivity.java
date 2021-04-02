@@ -25,7 +25,7 @@ import com.pusher.client.connection.ConnectionEventListener;
 import com.pusher.client.connection.ConnectionState;
 import com.pusher.client.connection.ConnectionStateChange;
 import com.pusher.client.util.HttpAuthorizer;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.chat.Massage.Chat;
 import com.youssef.fixit.Models.chat.Massage.Datum;

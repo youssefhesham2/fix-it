@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.R;
 import com.youssef.fixit.Category.CategoryFragment;
 import com.youssef.fixit.Chat.RoomsFragment;

@@ -1,4 +1,4 @@
-package com.youssef.fixit.MainActivity;
+package com.youssef.fixit.SplashActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

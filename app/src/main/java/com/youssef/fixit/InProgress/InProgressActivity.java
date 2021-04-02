@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Contract.Contract;
 import com.youssef.fixit.Models.Contract.Data;
 import com.youssef.fixit.R;

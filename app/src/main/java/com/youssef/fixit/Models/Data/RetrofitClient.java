@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Ads.Package.Package;
 import com.youssef.fixit.Models.Ads.ShowAds;
 import com.youssef.fixit.Models.Bids.Bids;

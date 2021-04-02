@@ -22,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.Bids;
 import com.youssef.fixit.Models.Bids.Datum;

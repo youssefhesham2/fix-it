@@ -27,7 +27,7 @@ import android.widget.Toast;
 import com.alespero.expandablecardview.ExpandableCardView;
 import com.cazaea.sweetalert.SweetAlertDialog;
 import com.squareup.picasso.Picasso;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Contract.Contract;

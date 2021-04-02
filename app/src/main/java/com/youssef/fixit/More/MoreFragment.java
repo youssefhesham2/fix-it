@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.ShowProfile.ShowProfile;
 import com.youssef.fixit.Models.ShowProfile.User;
 import com.youssef.fixit.R;

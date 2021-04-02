@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.chat.CreatedBy;
 import com.youssef.fixit.Models.chat.Datum;
 import com.youssef.fixit.Models.chat.Rooms;

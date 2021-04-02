@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.ShowProfile.Category;
 import com.youssef.fixit.Models.ShowProfile.Feedback;

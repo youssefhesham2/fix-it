@@ -2,7 +2,7 @@ package com.youssef.fixit.Auth.LoginFragment;
 
 import android.util.Log;
 
-import com.youssef.fixit.MainActivity.SplashScreen;
+import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Data.RetrofitClient;
 import com.youssef.fixit.Models.Register.Register;
