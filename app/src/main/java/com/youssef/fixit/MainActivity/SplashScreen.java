@@ -15,23 +15,26 @@ import com.youssef.fixit.Auth.AuthActivity;
 import com.youssef.fixit.Home.HomeActivity;
 import com.youssef.fixit.R;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity implements SplashView {
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
     public static String MyToken;
     public static String MyRole;
     public static int My_ID;
+    private SplashScreenPresenter presenter;
+    private ImageView logo;
+    private Animation animation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        initViews();
         InitSharedPreferences();
         InitSplashScreen();
     }
 
     private void InitSplashScreen() {
-        ImageView logo = findViewById(R.id.img_logo);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim);
         logo.startAnimation(animation);
         Thread t = new Thread() {
 
@@ -48,22 +51,34 @@ public class SplashScreen extends AppCompatActivity {
         t.start();
     }
 
+    private void initViews() {
+        logo = findViewById(R.id.img_logo);
+        animation = AnimationUtils.loadAnimation(this, R.anim.anim);
+        presenter = new SplashScreenPresenter(this);
+    }
+
     private void CheckLogin() {
-        SplashScreen.MyToken = preferences.getString("token", "");
-        SplashScreen.MyRole = preferences.getString("role", "");
-        SplashScreen.My_ID = preferences.getInt("my_id", 0);
-        if (SplashScreen.MyToken.isEmpty()) {
-            startActivity(new Intent(this, AuthActivity.class));
-            finish();
-        } else {
-            startActivity(new Intent(this, HomeActivity.class));
-            finish();
-            Log.e("hesham", "home" + SplashScreen.MyToken);
-        }
+        MyToken = preferences.getString("token", "");
+        MyRole = preferences.getString("role", "");
+        My_ID = preferences.getInt("my_id", 0);
+
+        presenter.checkUserIsLoggedInOrNot(MyToken);
     }
 
     private void InitSharedPreferences() {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
+    }
+
+    @Override
+    public void isLoggedIn() {
+        startActivity(new Intent(this, AuthActivity.class));
+        finish();
+    }
+
+    @Override
+    public void notLoggedIn() {
+        startActivity(new Intent(this, HomeActivity.class));
+        finish();
     }
 }
