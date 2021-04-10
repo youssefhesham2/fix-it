@@ -16,35 +16,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FixIt"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UI.StaticPage.TermsandConditionsActivity"></activity>
-        <activity android:name=".UI.StaticPage.PrivacyPolicyActivity" />
-        <activity android:name=".UI.StaticPage.AboutUSActivity" />
-        <activity android:name=".UI.Chat.ChatActivity" />
-        <activity android:name=".UI.MainActivity.SplashScreen">
+        <activity android:name=".StaticPage.TermsandConditionsActivity"></activity>
+        <activity android:name=".StaticPage.PrivacyPolicyActivity" />
+        <activity android:name=".StaticPage.AboutUSActivity" />
+        <activity android:name=".Chat.ChatActivity" />
+        <activity android:name=".SplashActivity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.Packages.SubscribePackageActivity" />
-        <activity android:name=".UI.Invoice.InvoiceActivity" />
-        <activity android:name=".UI.ShowProfile.ShowProfileActivity" />
-        <activity android:name=".UI.MyProfile.MyProfileActivity" />
-        <activity android:name=".UI.Contract.ContractScreenShotActivity" />
-        <activity android:name=".UI.PaymentTypes.Paypal.PaypalActivity" />
-        <activity android:name=".UI.InProgress.InProgressActivity" />
-        <activity android:name=".UI.Contract.DisplayAllMillestonesActivity" />
-        <activity android:name=".UI.Contract.DisplayContractActivity" />
-        <activity android:name=".UI.Milestones.MilestonesActivity" />
-        <activity android:name=".UI.Contract.CreateContractActivity" />
-        <activity android:name=".UI.Bids.BidsListActivity" />
-        <activity android:name=".UI.Bids.CreateBidActivity" />
-        <activity android:name=".UI.Projects.ProjectActivity" />
-        <activity android:name=".UI.AddWork.AddWorkActivity" />
-        <activity android:name=".UI.Auth.AuthActivity" />
-        <activity android:name=".UI.Home.HomeActivity" />
-        <activity android:name=".UI.MainActivity.MainActivity" />
+        <activity android:name=".Packages.SubscribePackageActivity" />
+        <activity android:name=".Invoice.InvoiceActivity" />
+        <activity android:name=".ShowProfile.ShowProfileActivity" />
+        <activity android:name=".MyProfile.MyProfileActivity" />
+        <activity android:name=".Contract.ContractScreenShotActivity" />
+        <activity android:name=".PaymentTypes.Paypal.PaypalActivity" />
+        <activity android:name=".InProgress.InProgressActivity" />
+        <activity android:name=".Contract.DisplayAllMillestonesActivity" />
+        <activity android:name=".Contract.DisplayContractActivity" />
+        <activity android:name=".Milestones.MilestonesActivity" />
+        <activity android:name=".Contract.CreateContractActivity" />
+        <activity android:name=".Bids.BidsListActivity" />
+        <activity android:name=".Bids.CreateBidActivity" />
+        <activity android:name=".Projects.ProjectActivity" />
+        <activity android:name=".AddWork.AddWorkActivity" />
+        <activity android:name=".Auth.AuthActivity" />
+        <activity android:name=".Home.HomeActivity" />
     </application>
 
 </manifest>

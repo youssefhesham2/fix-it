@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="10dp"
-            tools:context=".UI.More.MoreFragment">
+            tools:context=".More.MoreFragment">
 
             <LinearLayout
                 android:id="@+id/Lt_my_profile"

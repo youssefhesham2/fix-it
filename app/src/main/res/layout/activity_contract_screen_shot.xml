@@ -7,7 +7,7 @@
     android:padding="10dp"
     android:id="@+id/rrr"
     android:orientation="vertical"
-    tools:context=".UI.Contract.ContractScreenShotActivity">
+    tools:context=".Contract.ContractScreenShotActivity">
 
     <TextView
         android:layout_width="match_parent"
