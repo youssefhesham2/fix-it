@@ -23,11 +23,10 @@ import com.youssef.fixit.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment implements LoginView {
     FragmentLoginBinding binding;
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
     private ProgressDialog dialog;
     int showPassword;
     LoginPresenter loginPresenter;
+    SharedPreference sharedPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,7 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     private void initViews() {
-        loginPresenter = new LoginPresenter(this);
+        loginPresenter = new LoginPresenter(this,sharedPreference);
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,8 +64,7 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     private void initSharedPreferences() {
-        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        editor = preferences.edit();
+        sharedPreference=new SharedPreference(getActivity());
     }
 
     private void initDialog() {
@@ -99,11 +97,11 @@ public class LoginFragment extends Fragment implements LoginView {
 
                 if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     if (motionEvent.getRawX() >= (binding.etPassword.getRight() - binding.etPassword.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                        if (showpassword == 0) {
-                            showpassword = 1;
+                        if (showPassword == 0) {
+                            showPassword = 1;
                             binding.etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                        } else if (showpassword == 1) {
-                            showpassword = 0;
+                        } else if (showPassword == 1) {
+                            showPassword = 0;
                             binding.etPassword.setInputType(129);
                         }
                         return true;
@@ -113,15 +111,6 @@ public class LoginFragment extends Fragment implements LoginView {
 
             }
         });
-    }
-
-    private void saveDataInShared(String token, String role, int my_id) {
-        editor.putString("token", token);
-        editor.putString("role", role);
-        editor.putInt("my_id", my_id);
-        editor.commit();
-        getActivity().startActivity(new Intent(getContext(), HomeActivity.class));
-        getActivity().finish();
     }
 
     @Override
@@ -137,8 +126,9 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     @Override
-    public void onLoginSuccessful(String token, String role, int my_id) {
-        saveDataInShared(token, role, my_id);
+    public void onLoginSuccessful() {
+        getActivity().startActivity(new Intent(getContext(), HomeActivity.class));
+        getActivity().finish();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.youssef.fixit.Auth.LoginFragment;
 
 import android.util.Log;
 
+import com.youssef.fixit.Models.Register.Data;
 import com.youssef.fixit.SplashActivity.SplashScreen;
 import com.youssef.fixit.Models.Bids.CreateBid;
 import com.youssef.fixit.Models.Data.RetrofitClient;
@@ -16,9 +17,11 @@ import retrofit2.Response;
 class LoginPresenter {
     private static final String TAG = "LoginPresenter";
     private LoginView view;
+    private SharedPreferenceInterface preferenceInterface;
 
-    public LoginPresenter(LoginView view) {
+    public LoginPresenter(LoginView view, SharedPreference sharedPreference) {
         this.view = view;
+        preferenceInterface = sharedPreference;
     }
 
     void onLogin(String mail, String password) {
@@ -46,16 +49,17 @@ class LoginPresenter {
                 view.hideLoading();
                 if (response.isSuccessful() && response.code() == 200) {
                     if (response.body().getData() != null) {
+                        Data data = response.body().getData();
                         List<String> roles = response.body().getData().getRoles();
                         SplashScreen.MyToken = response.body().getData().getToken();
                         SplashScreen.My_ID = response.body().getData().getId();
                         SplashScreen.MyRole = roles.get(0);
                         Log.d(TAG, response.body().getData().getId() + "");
                         Log.d(TAG, SplashScreen.MyToken);
-                        String token = response.body().getData().getToken();
-                        String role = response.body().getData().getRoles().get(0);
-                        int my_id = response.body().getData().getId();
-                        view.onLoginSuccessful(token, role, my_id);
+                        preferenceInterface.saveString("token", data.getToken());
+                        preferenceInterface.saveString("role", data.getToken());
+                        preferenceInterface.saveInt("my_id", data.getId());
+                        view.onLoginSuccessful();
                     } else {
                         view.onFailure("incorrect email or password!!");
                     }
