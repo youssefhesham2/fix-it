@@ -3,27 +3,23 @@ package com.youssef.fixit.Auth.LoginFragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 
-public class SharedPreference implements SharedPreferenceInterface {
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
+import java.util.HashMap;
 
-    public SharedPreference(Context context) {
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        editor = preferences.edit();
+public class SharedPreference {
+    private ISharedPreferenceInterface iSharedPreferenceInterface;
+
+    public SharedPreference(ISharedPreferenceInterface iSharedPreferenceInterface) {
+        this.iSharedPreferenceInterface = iSharedPreferenceInterface;
     }
 
-    @Override
-    public void saveString(String key, String value) {
-        editor.putString(key, value);
-        editor.commit();
+    public void save(String key, Object value) {
+        iSharedPreferenceInterface.save(key, value);
     }
 
-    @Override
-    public void saveInt(String key, int value) {
-        editor.putInt(key, value);
-        editor.commit();
+    public Object get(String key) {
+        return iSharedPreferenceInterface.get(key);
     }
-
 }
+
+

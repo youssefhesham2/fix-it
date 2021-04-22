@@ -17,11 +17,9 @@ import retrofit2.Response;
 class LoginPresenter {
     private static final String TAG = "LoginPresenter";
     private LoginView view;
-    private SharedPreferenceInterface preferenceInterface;
 
-    public LoginPresenter(LoginView view, SharedPreference sharedPreference) {
+    public LoginPresenter(LoginView view) {
         this.view = view;
-        preferenceInterface = sharedPreference;
     }
 
     void onLogin(String mail, String password) {
@@ -56,9 +54,9 @@ class LoginPresenter {
                         SplashScreen.MyRole = roles.get(0);
                         Log.d(TAG, response.body().getData().getId() + "");
                         Log.d(TAG, SplashScreen.MyToken);
-                        preferenceInterface.saveString("token", data.getToken());
-                        preferenceInterface.saveString("role", data.getToken());
-                        preferenceInterface.saveInt("my_id", data.getId());
+                        view.saveString("token", data.getToken());
+                        view.saveString("role", data.getRoles().get(0));
+                        view.saveInt("my_id", data.getId());
                         view.onLoginSuccessful();
                     } else {
                         view.onFailure("incorrect email or password!!");

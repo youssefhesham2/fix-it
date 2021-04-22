@@ -27,6 +27,7 @@ public class LoginFragment extends Fragment implements LoginView {
     int showPassword;
     LoginPresenter loginPresenter;
     SharedPreference sharedPreference;
+    ISharedPreferenceInterface iSharedPreferenceInterface;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     private void initViews() {
-        loginPresenter = new LoginPresenter(this,sharedPreference);
+        loginPresenter = new LoginPresenter(this);
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +65,6 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     private void initSharedPreferences() {
-        sharedPreference=new SharedPreference(getActivity());
     }
 
     private void initDialog() {
@@ -149,5 +149,18 @@ public class LoginFragment extends Fragment implements LoginView {
     @Override
     public void hideLoading() {
         dialog.dismiss();
+    }
+
+    @Override
+    public void saveString(String key, String value) {
+        iSharedPreferenceInterface = new PreferenceString(getActivity());
+        sharedPreference = new SharedPreference(iSharedPreferenceInterface);
+        sharedPreference.save(key, value);
+    }
+
+    @Override
+    public void saveInt(String key, int value) {
+        iSharedPreferenceInterface = new PreferenceInt(getActivity());
+        iSharedPreferenceInterface.save(key, value);
     }
 }
