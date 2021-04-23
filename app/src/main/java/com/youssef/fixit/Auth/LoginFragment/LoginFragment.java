@@ -2,14 +2,12 @@ package com.youssef.fixit.Auth.LoginFragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -24,10 +22,8 @@ import com.youssef.fixit.databinding.FragmentLoginBinding;
 public class LoginFragment extends Fragment implements LoginView {
     FragmentLoginBinding binding;
     private ProgressDialog dialog;
-    int showPassword;
-    LoginPresenter loginPresenter;
-    SharedPreference sharedPreference;
-    ISharedPreferenceInterface iSharedPreferenceInterface;
+    private int showPassword;
+    private LoginPresenter loginPresenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +41,6 @@ public class LoginFragment extends Fragment implements LoginView {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initSharedPreferences();
         initDialog();
         initViews();
         forgetPassword();
@@ -53,7 +48,7 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     private void initViews() {
-        loginPresenter = new LoginPresenter(this);
+        loginPresenter = new LoginPresenter(this, SharedPreferenceImplementation.getInstance(getActivity().getApplicationContext()));
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,8 +59,6 @@ public class LoginFragment extends Fragment implements LoginView {
         });
     }
 
-    private void initSharedPreferences() {
-    }
 
     private void initDialog() {
         dialog = new ProgressDialog(getContext());
@@ -152,15 +145,8 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     @Override
-    public void saveString(String key, String value) {
-        iSharedPreferenceInterface = new PreferenceString(getActivity());
-        sharedPreference = new SharedPreference(iSharedPreferenceInterface);
-        sharedPreference.save(key, value);
-    }
-
-    @Override
-    public void saveInt(String key, int value) {
-        iSharedPreferenceInterface = new PreferenceInt(getActivity());
-        iSharedPreferenceInterface.save(key, value);
+    public void onDestroy() {
+        loginPresenter.onDestroy();
+        super.onDestroy();
     }
 }

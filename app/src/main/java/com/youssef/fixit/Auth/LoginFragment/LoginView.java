@@ -14,8 +14,4 @@ interface LoginView {
     void showLoading();
 
     void hideLoading();
-
-    void saveString(String key, String value);
-
-    void saveInt(String key, int value);
 }

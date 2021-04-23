@@ -17,9 +17,10 @@ import retrofit2.Response;
 class LoginPresenter {
     private static final String TAG = "LoginPresenter";
     private LoginView view;
-
-    public LoginPresenter(LoginView view) {
+    private ISharedPreference iSharedPreference;
+    public LoginPresenter(LoginView view, ISharedPreference iSharedPreference) {
         this.view = view;
+        this.iSharedPreference = iSharedPreference;
     }
 
     void onLogin(String mail, String password) {
@@ -54,9 +55,9 @@ class LoginPresenter {
                         SplashScreen.MyRole = roles.get(0);
                         Log.d(TAG, response.body().getData().getId() + "");
                         Log.d(TAG, SplashScreen.MyToken);
-                        view.saveString("token", data.getToken());
-                        view.saveString("role", data.getRoles().get(0));
-                        view.saveInt("my_id", data.getId());
+                        iSharedPreference.save("token", data.getToken());
+                        iSharedPreference.save("role", data.getRoles().get(0));
+                        iSharedPreference.save("my_id", data.getId());
                         view.onLoginSuccessful();
                     } else {
                         view.onFailure("incorrect email or password!!");
@@ -111,5 +112,10 @@ class LoginPresenter {
                 view.onFailure(t.getMessage());
             }
         });
+    }
+
+    void onDestroy() {
+        view = null;
+        iSharedPreference=null;
     }
 }
