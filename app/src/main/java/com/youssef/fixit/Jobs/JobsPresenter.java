@@ -7,31 +7,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-class JobsPresenter {
+class JobsPresenter implements IAPIListener {
     JobsView view;
+    IJobRepository jobRepository;
 
-    public JobsPresenter(JobsView view) {
+    public JobsPresenter(JobsView view, IJobRepository jobRepository) {
         this.view = view;
+        this.jobRepository = jobRepository;
     }
 
-    void GetJobs(String SearchTitle) {
-        RetrofitClient.getInstance().GetJobs(SearchTitle).enqueue(new Callback<Jobs>() {
-            @Override
-            public void onResponse(Call<Jobs> call, Response<Jobs> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null && response.body().getData().getData() != null) {
-                        if (response.body().getData().getData().size() > 0) {
-                            view.OnGetJobs(response.body());
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Jobs> call, Throwable t) {
-                view.OnFailure(t.getMessage());
-            }
-        });
+    void GetJobs(String searchTitle) {
+        jobRepository.getJobs(searchTitle, this);
     }
 
     void JobSearch(CharSequence SearchTitle) {
@@ -42,5 +28,25 @@ class JobsPresenter {
                 GetJobs("");
             }
         }
+    }
+
+    @Override
+    public void onSuccess(Response<Jobs> response) {
+        view.displayJobsData(response.body());
+    }
+
+    @Override
+    public void onError(Response<Jobs> response) {
+        view.showMessage(response.message());
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+        view.showMessage(t.getMessage());
+    }
+
+    void onDestroy() {
+        view = null;
+        jobRepository = null;
     }
 }
