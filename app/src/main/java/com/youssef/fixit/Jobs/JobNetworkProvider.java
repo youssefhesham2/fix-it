@@ -1,8 +1,7 @@
 package com.youssef.fixit.Jobs;
 
-import android.content.Context;
-
 import com.youssef.fixit.Models.Data.RetrofitClient;
+import com.youssef.fixit.Models.Error;
 import com.youssef.fixit.Models.Jobs.Jobs;
 
 import retrofit2.Call;
@@ -10,8 +9,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class JobNetworkProvider implements IJobRepository {
+    Error error;
+
+    public JobNetworkProvider() {
+        error = new Error();
+    }
+
     @Override
-    public void getJobs(String searchTitle, IAPIListener listener) {
+    public void getJobs(String searchTitle, DataProviderListener listener) {
         RetrofitClient.getInstance().GetJobs(searchTitle).enqueue(new Callback<Jobs>() {
             @Override
             public void onResponse(Call<Jobs> call, Response<Jobs> response) {
@@ -26,7 +31,8 @@ public class JobNetworkProvider implements IJobRepository {
 
             @Override
             public void onFailure(Call<Jobs> call, Throwable t) {
-                listener.onFailure(t);
+                error.setMessage(t.getMessage());
+                listener.onError(error);
             }
         });
     }

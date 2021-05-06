@@ -1,9 +1,7 @@
 package com.youssef.fixit.Jobs;
 
-import com.youssef.fixit.Models.Jobs.Jobs;
-
 interface IJobRepository {
 
-    void getJobs(String Search, IAPIListener listener);
+    void getJobs(String Search, DataProviderListener listener);
 
 }
