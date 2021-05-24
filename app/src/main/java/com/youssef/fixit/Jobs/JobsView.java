@@ -3,8 +3,8 @@ package com.youssef.fixit.Jobs;
 import com.youssef.fixit.Models.Jobs.Jobs;
 
 interface JobsView {
-    void OnGetJobs(Jobs jobs);
+    void displayJobsData(Jobs jobs);
 
-    void OnFailure(String error);
+    void showMessage(String error);
 
 }

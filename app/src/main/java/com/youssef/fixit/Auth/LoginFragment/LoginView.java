@@ -5,7 +5,7 @@ interface LoginView {
 
     void onPasswordIsError(String message);
 
-    void onLoginSuccessful(String token, String role, int myId);
+    void onLoginSuccessful();
 
     void onFailure(String error);
 

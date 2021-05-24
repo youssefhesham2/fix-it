@@ -24,6 +24,7 @@ public class JobsFragment extends Fragment implements JobsView {
     String search_title;
     JobsAdapter jobsAdapter;
     JobsPresenter jobsPresenter;
+    IJobRepository jobRepository;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,8 @@ public class JobsFragment extends Fragment implements JobsView {
     }
 
     private void InitJobs(String search_title_) {
-        jobsPresenter = new JobsPresenter(this);
+        jobRepository = new JobNetworkProvider();
+        jobsPresenter = new JobsPresenter(this, jobRepository);
         jobsPresenter.GetJobs(search_title_);
         jobsAdapter = new JobsAdapter();
         binding.jobsRv.setAdapter(jobsAdapter);
@@ -73,13 +75,19 @@ public class JobsFragment extends Fragment implements JobsView {
     }
 
     @Override
-    public void OnGetJobs(Jobs jobs) {
+    public void displayJobsData(Jobs jobs) {
         binding.loadGraph.setVisibility(View.GONE);
         jobsAdapter.setJobsList(jobs.getData().getData());
     }
 
     @Override
-    public void OnFailure(String error) {
+    public void showMessage(String error) {
         Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroy() {
+        jobsPresenter.onDestroy();
+        super.onDestroy();
     }
 }

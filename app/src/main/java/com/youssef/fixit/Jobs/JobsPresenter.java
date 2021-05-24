@@ -1,37 +1,19 @@
 package com.youssef.fixit.Jobs;
 
-import com.youssef.fixit.Models.Data.RetrofitClient;
+import com.youssef.fixit.Models.Error;
 import com.youssef.fixit.Models.Jobs.Jobs;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-class JobsPresenter {
+class JobsPresenter implements DataProviderListener<Jobs> {
     JobsView view;
+    IJobRepository jobRepository;
 
-    public JobsPresenter(JobsView view) {
+    public JobsPresenter(JobsView view, IJobRepository jobRepository) {
         this.view = view;
+        this.jobRepository = jobRepository;
     }
 
-    void GetJobs(String SearchTitle) {
-        RetrofitClient.getInstance().GetJobs(SearchTitle).enqueue(new Callback<Jobs>() {
-            @Override
-            public void onResponse(Call<Jobs> call, Response<Jobs> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null && response.body().getData().getData() != null) {
-                        if (response.body().getData().getData().size() > 0) {
-                            view.OnGetJobs(response.body());
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Jobs> call, Throwable t) {
-                view.OnFailure(t.getMessage());
-            }
-        });
+    void GetJobs(String searchTitle) {
+        jobRepository.getJobs(searchTitle, this);
     }
 
     void JobSearch(CharSequence SearchTitle) {
@@ -42,5 +24,20 @@ class JobsPresenter {
                 GetJobs("");
             }
         }
+    }
+
+    @Override
+    public void onSuccess(Jobs result) {
+        view.displayJobsData(result);
+    }
+
+    @Override
+    public void onError(Error error) {
+        view.showMessage(error.getMessage());
+    }
+
+    void onDestroy() {
+        view = null;
+        jobRepository = null;
     }
 }
