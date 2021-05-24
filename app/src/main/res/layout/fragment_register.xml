@@ -1,322 +1,360 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-    </data>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <data></data>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff"
-        android:orientation="vertical"
-        tools:context=".Auth.RegisterFragment">
+        android:fillViewport="true">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/uplodeImageRegister"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_baseline_photo_camera_24" />
-        <LinearLayout
-            android:id="@+id/lt_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/et_name_singup"
-                android:layout_width="0dp"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/uplodeImageRegister"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_baseline_photo_camera_24"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/fr_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/uplodeImageRegister">
+
+                <EditText
+                    android:id="@+id/et_name_singup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fr_email_signup"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_name">
+
+                <EditText
+                    android:id="@+id/et_email_singup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Mail"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fr_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_email_signup">
+
+                <EditText
+                    android:id="@+id/et_password_singup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@android:color/transparent"
+                    android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+                    android:hint="password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fr_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_password">
+
+                <EditText
+                    android:id="@+id/et_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@android:color/transparent"
+                    android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+                    android:hint="confirm password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fr_phone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_confirm_password">
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:hint="phone"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_cuntery"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fr_phone">
+
+                <Spinner
+                    android:id="@+id/spp_cuntery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_city"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_cuntery">
+
+                <Spinner
+                    android:id="@+id/spp_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_Area"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_city">
+
+                <Spinner
+                    android:id="@+id/spp_Area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_type"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_Area">
+
+                <Spinner
+                    android:id="@+id/spp_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_category"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_type">
+
+                <Spinner
+                    android:id="@+id/spp_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_sub_category1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_category">
+
+                <Spinner
+                    android:id="@+id/spp_sub_category1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_sub_category2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_sub_category1">
+
+                <Spinner
+                    android:id="@+id/spp_sub_category2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_sub_category3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_sub_category2">
+
+                <Spinner
+                    android:id="@+id/spp_sub_category3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/lt_sub_category4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/stroke_rosasy"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_sub_category3">
+
+                <Spinner
+                    android:id="@+id/spp_sub_category4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp" />
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:hint="Name"
-                android:imeOptions="actionNext"
-                android:inputType="text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </LinearLayout>
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/solid_my_color"
+                android:text="Sign up"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#fff"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt_sub_category4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
-            android:id="@+id/lt_email"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
+    </ScrollView>
 
-            <EditText
-                android:id="@+id/et_mail_singup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:hint="Email"
-                android:imeOptions="actionNext"
-                android:inputType="text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lt_password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <EditText
-                android:id="@+id/et_password_singup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
-                android:hint="password"
-                android:imeOptions="actionNext"
-                android:inputType="textPassword"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/lt_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <EditText
-                android:id="@+id/et_confirm_password"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
-                android:hint="confirm password"
-                android:imeOptions="actionNext"
-                android:inputType="textPassword"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lt_phone"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <EditText
-                android:id="@+id/et_phone"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:gravity="left"
-                android:hint="phone"
-                android:imeOptions="actionDone"
-                android:inputType="phone"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lt_cuntery"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_cuntery"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lt_city"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:visibility="gone"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_city"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lt_Area"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:visibility="gone"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_Area"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lt_type"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lt_category"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_category"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/lt_sub_category1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_sub_category1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/lt_sub_category2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_sub_category2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/lt_sub_category3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_sub_category3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/lt_sub_category4"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/stroke_rosasy"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Spinner
-                android:id="@+id/spp_sub_category4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/solid_my_color"
-            android:text="Sign up"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#fff" />
-    </LinearLayout>
-</ScrollView>
 </layout>
